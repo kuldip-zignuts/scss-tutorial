@@ -9,6 +9,10 @@ body {
 }
 
 .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   width: 80%;
   margin: 0 auto;
 }
@@ -17,4 +21,14 @@ body {
 }
 .main .main__paragraph:hover {
   color: pink;
+}
+@media (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+}
+
+.light {
+  background: white;
+  color: black;
 }/*# sourceMappingURL=main.css.map */

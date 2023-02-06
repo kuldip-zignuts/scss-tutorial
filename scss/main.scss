@@ -4,7 +4,26 @@
 @function weight($weight-name){
     @return map-get($map: $font-weight, $key:$weight-name )
 }
-
+@mixin flexCenter ($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+    //difference btw function and mixin is 
+    //in function used to compute and return values 
+    //mixin define style
+}
+@mixin theme($light-theme:true){
+    @if($light-theme){
+        background: lighten($color: $primary-color, $amount: 100%);
+        color: darken($color: $text-color, $amount: 100%);
+    }
+}
+@mixin mobile{
+    @media (max-width:$mobile) {
+        @content;        
+    }
+}
 $font-weight:(
     "regular":400,
     "medium":500,
@@ -16,6 +35,8 @@ body{
     // font-weight: map-get($map: $font-weight, $key:"bold");
 }
 .main {
+    @include flexCenter(row);
+   
     width: 80%;
     margin: 0 auto;
 
@@ -28,5 +49,11 @@ body{
         }
 
     }
+    @include mobile{
+        flex-direction: column;
+    }
    
+}
+.light{
+    @include theme($light-theme:true)
 }
