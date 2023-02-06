@@ -36,8 +36,8 @@ body{
 }
 .main {
     @include flexCenter(row);
-   
-    width: 80%;
+    // in sass we can't mix the variable type like px % vh vw etc
+    width:80% - 40%;
     margin: 0 auto;
 
     
